@@ -23,11 +23,13 @@ public class QuizApplication implements CommandLineRunner {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(QuizApplication.class, args);
+		
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+		List<User> users = userRepository.findAll();
+		users.forEach((user) -> logger.info(user.getUsername()));
 	}
 	
 }
